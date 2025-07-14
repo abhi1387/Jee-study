@@ -1,0 +1,93 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JEE Sci-Fi Study Tracker</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <meta name="theme-color" content="#0f2027" />
+  <style>
+    body {
+      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+      color: #e2e8f0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    button {
+      margin-left: 10px;
+      background-color: #2563eb;
+      color: white;
+      padding: 0.25rem 0.5rem;
+      border-radius: 0.25rem;
+    }
+  </style>
+</head>
+<body class="p-8">
+  <div class="max-w-4xl mx-auto">
+    <h1 class="text-4xl font-bold text-center mb-6">🚀 JEE Sci-Fi Study Tracker</h1>
+    <h2 class="text-xl font-semibold mb-4">Total XP: <span id="xp-count">0</span></h2>
+
+    <section class="mb-8">
+      <h2 class="text-2xl font-semibold">🌌 Daily Mission Log</h2>
+      <ul class="list-disc pl-6 mt-2">
+        <li>🧠 2 hrs of Physics <button onclick="addXP(20)">+20 XP</button></li>
+        <li>🔢 20 Maths questions <button onclick="addXP(20)">+20 XP</button></li>
+        <li>🧪 Organic notes <button onclick="addXP(15)">+15 XP</button></li>
+        <li>🚫 Skip task <button onclick="addXP(-10)">-10 HP</button></li>
+      </ul>
+    </section>
+
+    <section class="mb-8">
+      <h2 class="text-2xl font-semibold">📘 Subject Progress Tracker</h2>
+      <div class="grid grid-cols-2 gap-4 mt-4">
+        <div class="bg-gray-800 p-4 rounded-xl shadow-md">
+          <h3 class="font-bold text-lg">Physics: <span id="phy-count">0</span>/10</h3>
+          <button onclick="addChapter('phy')">+1 Chapter</button>
+        </div>
+        <div class="bg-gray-800 p-4 rounded-xl shadow-md">
+          <h3 class="font-bold text-lg">Maths: <span id="math-count">0</span>/12</h3>
+          <button onclick="addChapter('math')">+1 Chapter</button>
+        </div>
+        <div class="bg-gray-800 p-4 rounded-xl shadow-md">
+          <h3 class="font-bold text-lg">Organic: <span id="org-count">0</span>/8</h3>
+          <button onclick="addChapter('org')">+1 Chapter</button>
+        </div>
+        <div class="bg-gray-800 p-4 rounded-xl shadow-md">
+          <h3 class="font-bold text-lg">Inorganic: <span id="inorg-count">0</span>/7</h3>
+          <button onclick="addChapter('inorg')">+1 Chapter</button>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    // LocalStorage-based XP and chapter tracker
+    const xpEl = document.getElementById('xp-count');
+    const chapterIds = ['phy', 'math', 'org', 'inorg'];
+
+    function loadState() {
+      xpEl.textContent = localStorage.getItem('xp') || 0;
+      chapterIds.forEach(id => {
+        document.getElementById(`${id}-count`).textContent = localStorage.getItem(`${id}-chapters`) || 0;
+      });
+    }
+
+    function addXP(amount) {
+      let currentXP = parseInt(localStorage.getItem('xp') || '0');
+      currentXP += amount;
+      localStorage.setItem('xp', currentXP);
+      xpEl.textContent = currentXP;
+    }
+
+    function addChapter(subject) {
+      const key = `${subject}-chapters`;
+      let current = parseInt(localStorage.getItem(key) || '0');
+      current += 1;
+      localStorage.setItem(key, current);
+      document.getElementById(`${subject}-count`).textContent = current;
+    }
+
+    loadState();
+  </script>
+</body>
+</html>
