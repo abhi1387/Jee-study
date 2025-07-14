@@ -1,0 +1,80 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JEE Sci-Fi Study Tracker</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#0f2027" />
+  <link rel="apple-touch-icon" href="icon-192.png" />
+  <style>
+    body {
+      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+      color: #e2e8f0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+  </style>
+</head>
+<body class="p-8">
+  <div class="max-w-4xl mx-auto">
+    <h1 class="text-4xl font-bold text-center mb-6">🚀 JEE Sci-Fi Study Tracker</h1>
+
+    <section class="mb-8">
+      <h2 class="text-2xl font-semibold">🌌 Daily Mission Log</h2>
+      <ul class="list-disc pl-6 mt-2">
+        <li>🧠 Complete 2 hrs of Physics – +20 XP</li>
+        <li>🔢 Solve 20 Maths questions – +20 XP</li>
+        <li>🧪 Revise Organic Chemistry notes – +15 XP</li>
+        <li>🚫 Skip task – -10 HP</li>
+      </ul>
+    </section>
+
+    <section class="mb-8">
+      <h2 class="text-2xl font-semibold">📘 Subject Progress Tracker</h2>
+      <div class="grid grid-cols-2 gap-4 mt-4">
+        <div class="bg-gray-800 p-4 rounded-xl shadow-md">
+          <h3 class="font-bold text-lg">Physics</h3>
+          <p>Chapters Completed: 3/10</p>
+        </div>
+        <div class="bg-gray-800 p-4 rounded-xl shadow-md">
+          <h3 class="font-bold text-lg">Maths</h3>
+          <p>Chapters Completed: 5/12</p>
+        </div>
+        <div class="bg-gray-800 p-4 rounded-xl shadow-md">
+          <h3 class="font-bold text-lg">Organic Chemistry</h3>
+          <p>Chapters Completed: 2/8</p>
+        </div>
+        <div class="bg-gray-800 p-4 rounded-xl shadow-md">
+          <h3 class="font-bold text-lg">Inorganic Chemistry</h3>
+          <p>Chapters Completed: 4/7</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="mb-8">
+      <h2 class="text-2xl font-semibold">⚔️ Weekly Boss Battles</h2>
+      <ul class="list-decimal pl-6 mt-2">
+        <li>Mock Test 1 – Physics + Chemistry (Sunday)</li>
+        <li>Mock Test 2 – Maths + Mixed MCQs (Wednesday)</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2 class="text-2xl font-semibold">🏆 Achievements</h2>
+      <ul class="list-disc pl-6 mt-2">
+        <li>🔥 7-Day Streak – +100 XP</li>
+        <li>🎯 10 Chapters Complete – Badge Unlocked</li>
+        <li>📈 Score 90+ on Mock Test – Gold Rank</li>
+      </ul>
+    </section>
+  </div>
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('sw.js');
+    }
+  </script>
+</body>
+</html>
